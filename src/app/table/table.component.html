@@ -1,0 +1,26 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <th>name</th>
+            <th>dame</th>
+            <th>defend</th>
+            <th>speed</th>
+            <th>price</th>
+            <th>avatar</th>
+        </thead>
+        <tbody *ngFor="let item of hero">
+            <td>{{item.name}}</td>
+            <td>
+                <app-table-dame [dame]="item.dame"></app-table-dame>
+            </td>
+            <td>{{item.defend}}</td>
+            <td>{{item.speed}}</td>
+            <td>{{item.price}}</td>
+            <td>
+                <app-table-avatar [price]="item.price" [src]="item.avatar"></app-table-avatar>
+
+            </td>
+        </tbody>
+
+    </table>
+</div>
