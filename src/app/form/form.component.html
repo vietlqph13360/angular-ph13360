@@ -1,0 +1,63 @@
+<p>{{ userForm.value | json }}</p>
+<form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <div class="mb-3">
+        <label for="" class="form-label">Username</label>
+        <input type="name" class="form-control" name="name" ngModel required minlength="5" maxlength="32" #name="ngModel" [(ngModel)]="inputValue.name" />
+
+        <app-show-validate [field]="name" key="Tên"></app-show-validate>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">age</label>
+        <input type="number" class="form-control" name="age" ngModel required #age="ngModel" [(ngModel)]="inputValue.age" />
+
+        <app-show-validate [field]="age" key="age"></app-show-validate>
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Email</label>
+        <input type="text" class="form-control" name="email" ngModel required #email="ngModel" [(ngModel)]="inputValue.email" />
+
+        <app-show-validate [field]="email" key="Email "></app-show-validate>
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">SDT</label>
+        <input type="text" class="form-control" name="sdt" ngModel required #sdt="ngModel" [(ngModel)]="inputValue.sdt" />
+
+        <app-show-validate [field]="sdt" key="Sdt "></app-show-validate>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">
+    Submit
+  </button>
+</form>
+
+<div>
+    <table class="table table-hover">
+        <thead>
+            <th>Id</th>
+
+            <th>Ten</th>
+            <th>Tuoi</th>
+            <th>Email</th>
+            <th>SDT</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.age }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.sdt }}</td>
+                <td>
+                    <button class="btn btn-warning" (click)="updateItem(user.id)">
+            Sửa
+          </button>
+                    <button class="btn btn-danger" (click)="removeItem(user.id)">
+            Xóa
+          </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

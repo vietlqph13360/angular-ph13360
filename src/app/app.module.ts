@@ -10,6 +10,9 @@ import { NameComponent } from './name/name.component';
 import { IdentityComponent } from './identity/identity.component';
 import { TableAvatarComponent } from './table/table-avatar/table-avatar.component';
 import { TableDameComponent } from './table/table-dame/table-dame.component';
+import { FormComponent } from './form/form.component';
+import { FormsModule } from '@angular/forms';
+import { ShowValidateComponent } from './components/show-validate/show-validate.component';
 
 
 @NgModule({
@@ -21,11 +24,14 @@ import { TableDameComponent } from './table/table-dame/table-dame.component';
     IdentityComponent,
     TableAvatarComponent,
     TableDameComponent,
+    FormComponent,
+    ShowValidateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
